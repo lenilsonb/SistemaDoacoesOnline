@@ -23,7 +23,7 @@ public class conecta {
         return conn;
     }
     
-    public void saveAtributes(){
+    public void saveAtributes(String[] list){
         
     }
 }

@@ -4,6 +4,7 @@
  */
 package conexao;
 
+import model.Tela01;
 import util.conecta;
 
 
@@ -20,6 +21,9 @@ public class App {
         
         conecta c = new conecta();
         c.conectar();
+        
+        Tela01 tela = new Tela01();
+        tela.setVisible(true);
         
     }
     

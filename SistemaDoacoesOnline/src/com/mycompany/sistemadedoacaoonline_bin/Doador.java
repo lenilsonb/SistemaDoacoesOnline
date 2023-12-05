@@ -4,6 +4,8 @@
  */
 package com.mycompany.sistemadedoacaoonline_bin;
 
+import util.conecta;
+
 /**
  *
  * @author Eduardo Bin
@@ -77,11 +79,8 @@ public class Doador {
     
     public void gravar(){
         String[] list = {this.nome, this.telefone, this.email, this.endereco, this.tipo, this.quantidade, this.descricao};
-        
-        for(int i = 0; i<7; i++){
-            System.out.print(list[i]);
-        }
-        
+        conecta conn = new conecta();
+        conn.saveAtributes(list);
         
     }
     
