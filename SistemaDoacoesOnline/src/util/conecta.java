@@ -26,7 +26,7 @@ public class conecta {
     
     public void saveAtributes(String[] list) throws SQLException, ClassNotFoundException{
         PreparedStatement ps = null;
-        String sql = "INSERT INTO Doacao VALUES(?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO Doacao (Nome,Telefone,Email,Endereco,Tipo,Quantidade,Descricao) VALUES(?,?,?,?,?,?,?);";
         ps = this.conectar().prepareStatement(sql);
         ps.setString(1,list[0]);
         ps.setString(2,list[1]);
@@ -36,6 +36,14 @@ public class conecta {
         ps.setString(6,list[5]);
         ps.setString(7,list[6]);
         
+        ps.execute();
+        
+    }
+    
+    public void getAtributes(String[] list) throws SQLException, ClassNotFoundException{
+        PreparedStatement ps = null;
+        String sql = "SELECT * FROM";
+
         ps.execute();
         
     }
