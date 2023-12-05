@@ -11,7 +11,7 @@ import util.conecta;
  *
  * @author ADS2311011
  */
-public class Aula13 {
+public class App {
 
     /**
      * @param args the command line arguments
