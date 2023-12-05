@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistemadedoacaoonline_bin;
 
+import java.sql.SQLException;
 import util.conecta;
 
 /**
@@ -77,7 +78,7 @@ public class Doador {
         this.descricao = descricao;
     }
     
-    public void gravar(){
+    public void gravar() throws SQLException, ClassNotFoundException{
         String[] list = {this.nome, this.telefone, this.email, this.endereco, this.tipo, this.quantidade, this.descricao};
         conecta conn = new conecta();
         conn.saveAtributes(list);

@@ -10,6 +10,7 @@ import java.sql.*;
  * @author ADS2311011
  */
 public class conecta {
+
     public static Connection conectar() throws ClassNotFoundException{
         Connection conn = null;
         
@@ -23,7 +24,19 @@ public class conecta {
         return conn;
     }
     
-    public void saveAtributes(String[] list){
+    public void saveAtributes(String[] list) throws SQLException, ClassNotFoundException{
+        PreparedStatement ps = null;
+        String sql = "INSERT INTO Doacao VALUES(?,?,?,?,?,?,?);";
+        ps = this.conectar().prepareStatement(sql);
+        ps.setString(1,list[0]);
+        ps.setString(2,list[1]);
+        ps.setString(3,list[2]);
+        ps.setString(4,list[3]);
+        ps.setString(5,list[4]);
+        ps.setString(6,list[5]);
+        ps.setString(7,list[6]);
+        
+        ps.execute();
         
     }
 }
