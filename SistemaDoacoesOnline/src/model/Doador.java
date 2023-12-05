@@ -75,7 +75,9 @@ public class Doador {
         this.descricao = descricao;
     }
     
-
+    public void gravar(){
+        
+    }
     
     
 }
