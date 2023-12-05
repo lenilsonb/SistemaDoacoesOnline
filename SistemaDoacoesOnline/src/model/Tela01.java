@@ -5,6 +5,9 @@
 package model;
 
 import com.mycompany.sistemadedoacaoonline_bin.Doador;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -48,6 +51,7 @@ public class Tela01 extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtDesc = new javax.swing.JTextField();
         btnEnviar = new javax.swing.JButton();
+        btnExibir = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -162,6 +166,15 @@ public class Tela01 extends javax.swing.JFrame {
             }
         });
 
+        btnExibir.setBackground(new java.awt.Color(255, 255, 204));
+        btnExibir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnExibir.setText("Exibir");
+        btnExibir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExibirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -186,8 +199,10 @@ public class Tela01 extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(106, 106, 106)
+                .addGap(56, 56, 56)
                 .addComponent(btnEnviar)
+                .addGap(29, 29, 29)
+                .addComponent(btnExibir)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -206,7 +221,9 @@ public class Tela01 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDesc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEnviar)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEnviar)
+                    .addComponent(btnExibir))
                 .addGap(10, 10, 10))
         );
 
@@ -259,11 +276,26 @@ public class Tela01 extends javax.swing.JFrame {
         doador.setTipo(cbbTipo.getSelectedItem().toString());
         doador.setDescricao(txtDesc.getText());
         
-        doador.gravar();
+        try {
+            doador.gravar();
+        } catch (SQLException ex) {
+            Logger.getLogger(Tela01.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Tela01.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
         
     }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
+       this.setVisible(false);
+       Tela02 tela2 = new Tela02();
+       
+       tela2.setVisible(true);
+       
+       
+    }//GEN-LAST:event_btnExibirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,6 +334,7 @@ public class Tela01 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
+    private javax.swing.JButton btnExibir;
     private javax.swing.JComboBox<String> cbbTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
