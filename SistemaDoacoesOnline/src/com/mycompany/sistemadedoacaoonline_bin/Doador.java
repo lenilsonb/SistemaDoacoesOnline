@@ -16,7 +16,7 @@ public class Doador {
     private String endereco;
     
     private String tipo;
-    private int quantidade;
+    private String quantidade;
     private String descricao;
     
 
@@ -25,7 +25,7 @@ public class Doador {
         
     }
     
-    public Doador(String nome, String telefone, String email, String endereco, String tipo, int quantidade, String descricao){
+    public Doador(String nome, String telefone, String email, String endereco, String tipo, String quantidade, String descricao){
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
@@ -65,17 +65,23 @@ public class Doador {
     public String getTipo(){
         return tipo;
     }
-    public void setQuantidade(int quantidade){
+    public void setQuantidade(String quantidade){
         this.quantidade = quantidade;
     }
-    public int getQuantidade(){
+    public String getQuantidade(){
         return quantidade;
     }
-    public void descricao(String descricao){
+    public void setDescricao(String descricao){
         this.descricao = descricao;
     }
     
     public void gravar(){
+        String[] list = {this.nome, this.telefone, this.email, this.endereco, this.tipo, this.quantidade, this.descricao};
+        
+        for(int i = 0; i<7; i++){
+            System.out.print(list[i]);
+        }
+        
         
     }
     

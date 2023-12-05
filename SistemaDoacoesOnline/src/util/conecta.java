@@ -22,4 +22,8 @@ public class conecta {
         
         return conn;
     }
+    
+    public void saveAtributes(){
+        
+    }
 }

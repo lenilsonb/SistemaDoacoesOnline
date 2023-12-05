@@ -255,9 +255,11 @@ public class Tela01 extends javax.swing.JFrame {
         doador.setEmail(txtEmail.getText());
         doador.setTelefone(txtTel.getText());
         doador.setEndereco(txtEndereco.getText());
-        doador.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
+        doador.setQuantidade(txtQuantidade.getText());
         doador.setTipo(cbbTipo.getSelectedItem().toString());
         doador.setDescricao(txtDesc.getText());
+        
+        doador.gravar();
         
         
         
