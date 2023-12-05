@@ -4,6 +4,7 @@
  */
 package conexao;
 
+import java.sql.SQLException;
 import model.Tela01;
 import util.conecta;
 
@@ -17,13 +18,14 @@ public class App {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
         
         conecta c = new conecta();
         c.conectar();
         
         Tela01 tela = new Tela01();
         tela.setVisible(true);
+        c.getAtributes();
         
     }
     

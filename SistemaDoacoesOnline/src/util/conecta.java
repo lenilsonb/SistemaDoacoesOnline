@@ -40,11 +40,23 @@ public class conecta {
         
     }
     
-    public void getAtributes(String[] list) throws SQLException, ClassNotFoundException{
+    public void getAtributes() throws SQLException, ClassNotFoundException{
         PreparedStatement ps = null;
-        String sql = "SELECT * FROM";
+        String sql = "SELECT * FROM doacao";
+        ps = this.conectar().prepareStatement(sql);
 
-        ps.execute();
+        ResultSet res = ps.executeQuery();
+        
+        while(res.next()){
+            System.out.println(res.getString(1));
+            System.out.println(res.getString(2));
+            System.out.println(res.getString(3));
+            System.out.println(res.getString(4));
+            System.out.println(res.getString(5));
+            System.out.println(res.getString(6));
+            System.out.println(res.getString(7));
+            System.out.println(res.getString(8));
+        }
         
     }
 }
