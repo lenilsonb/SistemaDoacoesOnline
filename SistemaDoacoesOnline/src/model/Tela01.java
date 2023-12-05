@@ -289,12 +289,17 @@ public class Tela01 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void btnExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExibirActionPerformed
-       this.setVisible(false);
-       Tela02 tela2 = new Tela02();
-       
-       tela2.setVisible(true);
-       
-       
+        try {
+            this.setVisible(false);
+            Tela02 tela2 = new Tela02();
+            
+            tela2.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Tela01.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Tela01.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
     }//GEN-LAST:event_btnExibirActionPerformed
 
     /**

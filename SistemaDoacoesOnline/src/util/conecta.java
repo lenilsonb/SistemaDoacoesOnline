@@ -5,6 +5,7 @@
 package util;
 
 import java.sql.*;
+import model.Tela02;
 /**
  *
  * @author ADS2311011
@@ -16,7 +17,7 @@ public class conecta {
         
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/fatec","root","");
+            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/fatec","root","1234");
         }catch (SQLException e){
             System.err.println(""+e.getMessage());
         }
@@ -40,41 +41,21 @@ public class conecta {
         
     }
     
-    public String[][] getAtributes() throws SQLException, ClassNotFoundException{
+    public void getAtributes() throws SQLException, ClassNotFoundException{
+        /*
         PreparedStatement ps = null;
         String sql = "SELECT * FROM doacao";
         ps = this.conectar().prepareStatement(sql);
         
         String[] valind = new String[8];
-        String[][] valores = new String[8][10];
+        String[][] valores = new String[8][];
 
         ResultSet res = ps.executeQuery();
         
-        int i = 0;
         
         while(res.next()){
             
-            System.out.println(res.getString(1));
-            System.out.println(res.getString(2));
-            System.out.println(res.getString(3));
-            System.out.println(res.getString(4));
-            System.out.println(res.getString(5));
-            System.out.println(res.getString(6));
-            System.out.println(res.getString(7));
-            System.out.println(res.getString(8));
-            
-            valind[0] = res.getString(1);
-            valind[1] = res.getString(2);
-            valind[2] = res.getString(3);
-            valind[3] = res.getString(4);
-            valind[4] = res.getString(5);
-            valind[5] = res.getString(6);
-            valind[6] = res.getString(7);
-            valind[7] = res.getString(8);
-            
-            valores[i] = valind;
-            i++;
-        }
-        return valores;
+        }*/
+        
     }
 }

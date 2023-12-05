@@ -4,7 +4,12 @@
  */
 package model;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import util.conecta;
 
 /**
@@ -20,8 +25,32 @@ public class Tela02 extends javax.swing.JFrame {
         initComponents();
         conecta con = new conecta();
         
-        System.out.println(con.getAtributes()[0][0]);
+        PreparedStatement ps = null;
+        String sql = "SELECT * FROM doacao";
+        ps = con.conectar().prepareStatement(sql);
         
+        String[] valind = new String[8];
+        String[][] valores = new String[8][];
+
+        ResultSet res = ps.executeQuery();
+        
+        DefaultTableModel tbm = (DefaultTableModel) tbConsulta.getModel();
+        
+        
+        
+        while(res.next()){
+            Object[] data = {res.getString(1),
+                res.getString(2),
+                res.getString(3),
+                res.getString(4),
+                res.getString(5),
+                res.getString(6),
+                res.getString(7),
+                res.getString(8),
+            
+            };
+            tbm.addRow(data);
+        }
         
     }
 
@@ -41,17 +70,14 @@ public class Tela02 extends javax.swing.JFrame {
 
         tbConsulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Nome", "Telefone", "Email", "Endereço", "Tipo", "Quantidade", "Descrição"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -110,7 +136,13 @@ public class Tela02 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tela02().setVisible(true);
+                try {
+                    new Tela02().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Tela02.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Tela02.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
