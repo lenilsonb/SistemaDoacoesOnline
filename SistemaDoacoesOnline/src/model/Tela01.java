@@ -8,6 +8,7 @@ import com.mycompany.sistemadedoacaoonline_bin.Doador;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -275,6 +276,15 @@ public class Tela01 extends javax.swing.JFrame {
         doador.setQuantidade(txtQuantidade.getText());
         doador.setTipo(cbbTipo.getSelectedItem().toString());
         doador.setDescricao(txtDesc.getText());
+        
+        txtDesc.setText("");
+        txtNome.setText("");
+        txtEmail.setText("");
+        txtEndereco.setText("");
+        txtQuantidade.setText("");
+        txtTel.setText("");
+        
+        JOptionPane.showMessageDialog(rootPane, "Cadastrado!");
         
         try {
             doador.gravar();
